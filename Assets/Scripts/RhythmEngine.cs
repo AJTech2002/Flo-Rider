@@ -14,7 +14,8 @@ public enum NoteResult
 {
     Pending,
     Hit,
-    Miss
+    Miss,
+    Wrong
 }
 
 public class RhythmEngine : MonoBehaviour
@@ -122,7 +123,7 @@ public class RhythmEngine : MonoBehaviour
             {
                 print("Too early!");
                 PlayNote(notes[upcoming]);
-                noteResults[upcoming] = NoteResult.Miss;
+                noteResults[upcoming] = NoteResult.Wrong;
 
                 return;
             }

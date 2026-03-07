@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
+    private float speedMultiplier = 1.0f;
     public float speed = 1.0f;
     public float rotationAngle = 5.0f;
     public float rotationSpeed = 5.0f;
@@ -41,5 +42,10 @@ public class CarMovement : MonoBehaviour
 
         Quaternion targetRotation = initialRotation * Quaternion.Euler(0, 0, angle);
         transform.rotation = targetRotation;
+    }
+    
+    public void UpdateSpeed(float multiplier)
+    {
+        speedMultiplier = multiplier;
     }
 }
