@@ -7,6 +7,7 @@ public class WhistleController : MonoBehaviour
     public Vector3 offset = new Vector3(0.0f, 1.5f, 0.0f);
     public float maxDistance = 100f;
 
+    public Transform shape;
     public Vector3 activeScale = new Vector3(1.0f, 1.0f, 1.0f);
     public Quaternion activeRotation;
     public float rotationSpeed = 1.0f;
@@ -32,6 +33,7 @@ public class WhistleController : MonoBehaviour
     {
         Vector3 groundPosition = ShootRayFromMousePosition();
         transform.position = groundPosition + offset;
+        shape.position = groundPosition + Vector3.up * 0.02f;
 
         isPressed = Mouse.current.leftButton.isPressed;
 
