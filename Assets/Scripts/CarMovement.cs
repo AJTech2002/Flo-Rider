@@ -16,7 +16,10 @@ public class CarMovement : MonoBehaviour
     public float turnSpeed = 80.0f;
 
     public float mapRadius = 15.0f;
-
+    
+    public MeshRenderer carMeshRenderer;
+    public List<Color> carColors;
+    
     public LayerMask carLayerMask;
     
     // Spherecast parameters for collision checking
@@ -31,12 +34,16 @@ public class CarMovement : MonoBehaviour
 
     void Start()
     {
+        carMeshRenderer.materials[0].color = carColors[Random.Range(0, carColors.Count)];
+        
         GameObject currentRoad = findCurrentRoad();
         if (currentRoad != null && currentRoad != road)
         {
             onChangeRoad(currentRoad);
             transform.rotation = Quaternion.LookRotation(endPoint.transform.position - transform.position);
         }
+
+        warning.transform.SetParent(null);
     }
 
     public bool frozen = false;
@@ -68,21 +75,46 @@ public class CarMovement : MonoBehaviour
         }
         
         // Check for collisions with other cars using a spherecast
-        RaycastHit hit;
-        if (Physics.SphereCast(transform.position + Vector3.up * 0.5f, collisionCheckRadius, transform.forward, out hit, collisionCheckDistance, carLayerMask))
+        // RaycastHit hit;
+        // if (Physics.SphereCast(transform.position + Vector3.up * 0.5f, collisionCheckRadius, transform.forward, out hit, collisionCheckDistance, carLayerMask))
+        // {
+        //     if (hit.collider.gameObject != gameObject)
+        //     {
+        //         warning.SetActive(true);
+        //     }
+        //     else
+        //     {
+        //         warning.SetActive(false);
+        //     }
+        // }
+        // else
+        // {
+        //     warning.SetActive(false);   
+        // }
+        
+        // Check all other CarMovmentsd in raidus
+        foreach (var car in GameObject.FindObjectsOfType<CarMovement>())
         {
-            if (hit.collider.gameObject != gameObject)
+            if (car != this && Vector3.Distance(car.transform.position, transform.position) < collisionCheckDistance)
             {
-                warning.SetActive(true);
+                float dot = Vector3.Dot(transform.forward, car.transform.forward);
+                
+                // check if they are coming towards each other
+                if (dot < 0 || (Vector3.Distance(car.transform.position, transform.position) < collisionCheckDistance / 2))
+                {
+                    warning.SetActive(true);
+                }
+                else
+                {
+                    warning.SetActive(false);
+                }
+
+                break;
             }
             else
             {
                 warning.SetActive(false);
             }
-        }
-        else
-        {
-            warning.SetActive(false);   
         }
 
         bool inXAxis = transform.position.x < mapRadius && transform.position.x > -1 * mapRadius;

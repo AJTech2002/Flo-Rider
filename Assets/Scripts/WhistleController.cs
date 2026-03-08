@@ -44,7 +44,7 @@ public class WhistleController : MonoBehaviour
         transform.position = groundPosition + offset;
         shape.position = groundPosition + Vector3.up * 0.02f;
 
-        isPressed = Mouse.current.leftButton.isPressed;
+        isPressed = Mouse.current.leftButton.isPressed || Input.GetKey(KeyCode.Space);
 
         Vector3 targetScale = isPressed ? activeScale : originalScale;
         Quaternion targetRotation = isPressed ? activeRotation : originalRotation;
@@ -83,7 +83,7 @@ public class WhistleController : MonoBehaviour
         }
         else
         {
-            whistleEffect.Color = Color.Lerp(whistleEffect.Color, Color.clear, Time.deltaTime * 5f);
+            whistleEffect.Color = Color.Lerp(whistleEffect.Color, new Color(1.0f, 0.0f, 0.0f, 0.15f), Time.deltaTime * 5f);
 
         }
 
