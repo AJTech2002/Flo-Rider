@@ -14,7 +14,7 @@ public class CarSpawner : MonoBehaviour
 
     IEnumerator SpawnRoutine()
     {
-        while (true)
+        while (GameManager.Instance.isGameRunning())
         {
             SpawnPrefab();
             yield return new WaitForSeconds(spawnInterval);

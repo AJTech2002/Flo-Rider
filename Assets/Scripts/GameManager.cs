@@ -39,6 +39,11 @@ public class GameManager : MonoBehaviour
         cameraController.targetPosition = position - cameraOffset;
     }
 
+    public bool isGameRunning()
+    {
+        return state == GameState.GAME;
+    }
+
     public GameState getGameState()
     {
         return state;

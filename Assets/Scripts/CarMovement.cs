@@ -34,6 +34,8 @@ public class CarMovement : MonoBehaviour
     
     void Update()
     {
+        if (!GameManager.Instance.isGameRunning()) return;
+        
         GameObject currentRoad = findCurrentRoad();
         if (currentRoad != null && currentRoad != road)
         {

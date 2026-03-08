@@ -18,7 +18,10 @@ public class CarAnimation : MonoBehaviour
     
     void Update()
     {
-        RockCar();
+        if (GameManager.Instance.isGameRunning())
+        {
+            RockCar();
+        }
     }
     
     private void RockCar()
