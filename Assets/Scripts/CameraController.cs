@@ -2,20 +2,31 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public GameManager gameManager;
     public Camera camera;
     public float zoomSpeed = 0.05f;
     public float maxSize = 20.0f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
+    public Vector3 targetPosition = new Vector3(-4.34f, 7.94f, -7.59f);
+    
 
     // Update is called once per frame
     void Update()
     {
-        float newSize = camera.orthographicSize + zoomSpeed * Time.deltaTime;
-        camera.orthographicSize = Mathf.Min(newSize, maxSize);
+        GameState gameState = gameManager.getGameState();
+        float newSize;
+        switch (gameState)
+        {
+            case GameState.GAME:
+                newSize = camera.orthographicSize + zoomSpeed * Time.deltaTime;
+                camera.orthographicSize = Mathf.Min(newSize, maxSize);            
+                break;
+            case GameState.GAME_OVER:
+                newSize = camera.orthographicSize - 3.0f * zoomSpeed * Time.deltaTime;
+                camera.orthographicSize = Mathf.Max(newSize, 1.0f);            
+                break;
+        }
+
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.01f);
     }
 }

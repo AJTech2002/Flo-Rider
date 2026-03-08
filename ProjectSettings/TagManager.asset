@@ -8,6 +8,7 @@ TagManager:
   - Intersection
   - T-intersection
   - Turn
+  - Car
   layers:
   - Default
   - TransparentFX
