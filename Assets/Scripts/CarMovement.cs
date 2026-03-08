@@ -21,6 +21,8 @@ public class CarMovement : MonoBehaviour
     private GameObject road;
     private GameObject startPoint;
     private GameObject endPoint;
+    
+    public static float carSpeed = 1.0f;
 
     void Start()
     {
@@ -80,7 +82,7 @@ public class CarMovement : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
         }
 
-        transform.position += transform.forward * speed * speedMultiplier * Time.deltaTime;
+        transform.position += transform.forward * speed * speedMultiplier * Time.deltaTime * carSpeed;
     }
 
     void onChangeRoad(GameObject currentRoad)

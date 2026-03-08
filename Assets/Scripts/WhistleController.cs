@@ -86,7 +86,7 @@ public class WhistleController : MonoBehaviour
               
             if (carMovement != null && Vector3.Distance(carPosition, groundPositionFlat) < whistleRadius)
             {
-                carMovement.UpdateSpeed(whistleMultiplier); // Example: slow down to 50% speed
+                carMovement.UpdateSpeed(0.0f); // Example: slow down to 50% speed
                 carMovement.RandomizeEndPoint(); // Make the car change its destination
             }
             else
