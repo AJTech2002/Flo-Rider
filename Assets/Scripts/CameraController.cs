@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
     public Camera camera;
     public float zoomSpeed = 0.05f;
     public float maxSize = 20.0f;
+    public float crashSize = 7.0f;
 
     public Vector3 targetPosition = new Vector3(-4.34f, 7.94f, -7.59f);
     
@@ -22,8 +23,8 @@ public class CameraController : MonoBehaviour
                 camera.orthographicSize = Mathf.Min(newSize, maxSize);            
                 break;
             case GameState.GAME_OVER:
-                newSize = camera.orthographicSize - 3.0f * zoomSpeed * Time.deltaTime;
-                camera.orthographicSize = Mathf.Max(newSize, 1.0f);            
+                newSize = camera.orthographicSize - 0.2f * zoomSpeed * Time.deltaTime;
+                camera.orthographicSize = Mathf.Max(newSize, crashSize);            
                 break;
         }
 

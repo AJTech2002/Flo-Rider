@@ -6,12 +6,10 @@ public class CarSpawner : MonoBehaviour
     public GameObject prefabToSpawn;
     public float spawnInterval = 0.5f; 
     
-    void Start()
+    public void StartSpawning()
     {
-        if (prefabToSpawn != null)
-            StartCoroutine(SpawnRoutine());
+        StartCoroutine(SpawnRoutine());
     }
-
     IEnumerator SpawnRoutine()
     {
         while (GameManager.Instance.isGameRunning())

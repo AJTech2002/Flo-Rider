@@ -53,10 +53,8 @@ public class RhythmEngine : MonoBehaviour
     {
         LoadMidi();
         SetSongSpeed(startingSongSpeed);
-        StartSong();
-        
+        // StartSong();
     }
-    
     
     void LoadMidi()
     {
@@ -107,7 +105,7 @@ public class RhythmEngine : MonoBehaviour
         
     }
 
-    void StartSong()
+    public void StartSong()
     {
         double dspStart = AudioSettings.dspTime + 0.2;
         bg.PlayScheduled(dspStart);

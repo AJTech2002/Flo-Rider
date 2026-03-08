@@ -10,7 +10,7 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
     public CameraController cameraController;
-    private GameState state = GameState.GAME;
+    public GameState state = GameState.GAME;
     
     public static GameManager Instance { get; private set; }
     
@@ -27,9 +27,11 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    void StartGame()
+    public void StartGame()
     {
         state = GameState.GAME;
+        GameObject.FindAnyObjectByType<CarSpawner>().StartSpawning();
+        GameObject.FindAnyObjectByType<RhythmEngine>().StartSong();
     }
 
     public void CarCrashed(Vector3 position)

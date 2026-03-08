@@ -22,7 +22,8 @@ public class WhistleController : MonoBehaviour
     
     public float whistleRadius = 5.0f;
     public Shapes.Disc whistleEffect;
-    
+
+    public float whistleMultiplier = 0.5f;
 
     void Start()
     {
@@ -62,41 +63,38 @@ public class WhistleController : MonoBehaviour
 
         if (isPressed)
         {
-            Vector3 groundPositionFlat = groundPosition;  
-            groundPositionFlat.y = 0.0f; // Ignore height for distance calculation  
-
+           
             // Shake if pressed
             transform.rotation *= Quaternion.Euler(
                 Random.Range(-shakeIntensity, shakeIntensity),
                 Random.Range(-shakeIntensity, shakeIntensity),
                 Random.Range(-shakeIntensity, shakeIntensity)
             );
-            // Handle slowing down cars within radius
-            foreach (CarMovement carMovement in GameObject.FindObjectsOfType<CarMovement>())
-            {
-                Vector3 carPosition = carMovement.transform.position;
-                carPosition.y = 0.0f; // Ignore height for distance calculation
+            
+          
+        }
+        
+        Vector3 groundPositionFlat = groundPosition;  
+        groundPositionFlat.y = 0.0f; // Ignore height for distance calculation  
+
+        // Handle slowing down cars within radius
+        foreach (CarMovement carMovement in GameObject.FindObjectsOfType<CarMovement>())
+        {
+            Vector3 carPosition = carMovement.transform.position;
+            carPosition.y = 0.0f; // Ignore height for distance calculation
                 
               
-                if (carMovement != null && Vector3.Distance(carPosition, groundPositionFlat) < whistleRadius)
-                {
-                    carMovement.UpdateSpeed(0.5f); // Example: slow down to 50% speed
-                }
-                else
-                {
-                    carMovement.UpdateSpeed(1.0f); // Reset to normal speed
-                }
+            if (carMovement != null && Vector3.Distance(carPosition, groundPositionFlat) < whistleRadius)
+            {
+                carMovement.UpdateSpeed(whistleMultiplier); // Example: slow down to 50% speed
             }
-            
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            foreach (CarMovement carMovement in GameObject.FindObjectsOfType<CarMovement>())
+            else
             {
                 carMovement.UpdateSpeed(1.0f); // Reset to normal speed
             }
         }
+
+
     }
 
     public void UpdateRadius(float newRadius)
