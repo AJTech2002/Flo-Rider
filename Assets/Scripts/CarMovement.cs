@@ -33,7 +33,8 @@ public class CarMovement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(endPoint.transform.position - transform.position);
         }
     }
-    
+
+    public bool frozen = false;
     void Update()
     {
         if (!GameManager.Instance.isGameRunning()) return;
@@ -49,10 +50,16 @@ public class CarMovement : MonoBehaviour
             DrawDebugPoint(startPoint.transform.position, Color.red, 1.0f);
         }
         
-        if (endPoint != null)
+        if (endPoint != null && !frozen)
         {
             DrawDebugPoint(endPoint.transform.position, Color.blue, 1.0f);
             MoveAndTurnTowards(endPoint.transform.position);
+        }
+
+        if (frozen)
+        {
+            // Rotate around the Y axis
+            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
         }
 
         bool inXAxis = transform.position.x < mapRadius && transform.position.x > -1 * mapRadius;

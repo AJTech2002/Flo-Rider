@@ -27,7 +27,7 @@ public class CarAnimation : MonoBehaviour
     private void RockCar()
     {
         float sinValue = Mathf.Sin(Time.time * rotationSpeed + rotationOffset);
-        float angle = sinValue * rotationAngle * rotationMultiplier;
+        float angle = sinValue * rotationAngle * rotationMultiplier * CarMovement.carSpeed;
 
         Quaternion targetRotation = initialRotation * Quaternion.Euler(0, 0, angle);
         transform.localRotation = targetRotation;

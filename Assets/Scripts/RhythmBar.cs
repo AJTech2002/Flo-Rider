@@ -54,6 +54,8 @@ public class RhythmBar : MonoBehaviour
 
     private bool started = false;
 
+    public bool onBeat = true;
+
     private void Update()
     {
         if (!started) return;
@@ -80,19 +82,22 @@ public class RhythmBar : MonoBehaviour
                 var noteUI = activeNotes[noteId];
                 activeNotes[noteId].result = NoteResult.Hit;
                 noteUI.image.GetComponent<Animator>().SetTrigger("Hit");
+                onBeat = true;
             }
             else if (result == NoteResult.Miss)
             {
                 var noteUI = activeNotes[noteId];
                 activeNotes[noteId].result = result;
                 noteUI.image.GetComponent<Animator>().SetTrigger("Miss");
-                
+                onBeat = false;
             }
             else if (result == NoteResult.Wrong)
             {
                 var noteUI = activeNotes[noteId];
                 activeNotes[noteId].result = result;
                 noteUI.image.GetComponent<Animator>().SetTrigger("Wrong");
+                onBeat = false;
+
             }
         }
     }

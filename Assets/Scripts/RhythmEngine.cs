@@ -44,6 +44,8 @@ public class RhythmEngine : MonoBehaviour
 
     public int upcoming = 0;
 
+    public int onBeat = 0;
+
     [Header("Rhythm")]
     public float toleranceBeforeS = 0.1f;
     public RhythmBar bar;
@@ -131,7 +133,7 @@ public class RhythmEngine : MonoBehaviour
         {
             yield return new WaitForSeconds(15);
             float currentSpeed = bg.pitch;
-            float newSpeed = Mathf.Min(currentSpeed + 0.02f, maxSongSpeed);
+            float newSpeed = Mathf.Min(currentSpeed + 0.05f, maxSongSpeed);
             SetSongSpeed(newSpeed);
         }
     }

@@ -2381,8 +2381,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.4
-  m_fontSizeBase: 23.4
+  m_fontSize: 44.6
+  m_fontSizeBase: 44.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3359,6 +3359,104 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0b0a5a8e088d4d99825da98fac78049, type: 3}
+--- !u!1 &795668451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 795668452}
+  - component: {fileID: 795668455}
+  - component: {fileID: 795668454}
+  - component: {fileID: 795668453}
+  m_Layer: 5
+  m_Name: Logo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &795668452
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795668451}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1808495051}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -133.86267}
+  m_SizeDelta: {x: 587.03296, y: 440.27466}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &795668453
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795668451}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10ab0c7abfc534698b93854feb749ff2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &795668454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795668451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 3333616409669703947, guid: d48eecb165a5a4e0788badd0aa1d8c30, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &795668455
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795668451}
+  m_CullTransparentMesh: 1
 --- !u!1001 &812923033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3901,8 +3999,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -310}
-  m_SizeDelta: {x: 416, y: 560}
+  m_AnchoredPosition: {x: 0, y: -274.19122}
+  m_SizeDelta: {x: 416, y: 92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &921179317
 MonoBehaviour:
@@ -3933,8 +4031,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278211839
+  m_fontColor: {r: 1, g: 0.32911384, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3951,8 +4049,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.6
-  m_fontSizeBase: 44.6
+  m_fontSize: 23.83
+  m_fontSizeBase: 23.83
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3990,7 +4088,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 340.4541}
+  m_margin: {x: 0, y: 0, z: 0, w: -0.13677979}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5712,9 +5810,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Use \"Space\" or \"Click\" to whistle in tune to the song which will slow
-    cars down by making them dance. \n\nUse your mouse to hover over cars that you
-    want to FREEZE."
+  m_text: 'Use "Space" or "Click" to whistle in tune to the song which will activate
+    your whistle.
+
+
+    Hover over cars to FREEZE them and turn them in place.
+
+
+    Prevent
+    any car crashes!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b3c75ad1ffb241ce9ac9e713e981b58, type: 2}
   m_sharedMaterial: {fileID: 6526237829664393738, guid: 3b3c75ad1ffb241ce9ac9e713e981b58, type: 2}
@@ -6481,6 +6585,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c31d86df6d2f4d83843dde1320ce0e7, type: 3}
+--- !u!114 &1534033870 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3970160538651066178, guid: d046318bb333748e888bccf7cf608bf9, type: 3}
+  m_PrefabInstance: {fileID: 1794041591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5c779e4e7834dd4a78294d8f7c592e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RhythmBar
 --- !u!1001 &1534448900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8227,16 +8342,28 @@ PrefabInstance:
       value: 0.92156863
       objectReference: {fileID: 0}
     - target: {fileID: 3034244909220652511, guid: d046318bb333748e888bccf7cf608bf9, type: 3}
+      propertyPath: onBeat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034244909220652511, guid: d046318bb333748e888bccf7cf608bf9, type: 3}
       propertyPath: maxSongSpeed
-      value: 1.5
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034244909220652511, guid: d046318bb333748e888bccf7cf608bf9, type: 3}
+      propertyPath: spacePressed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3034244909220652511, guid: d046318bb333748e888bccf7cf608bf9, type: 3}
       propertyPath: toleranceBeforeS
-      value: 0.1
+      value: 0.111
       objectReference: {fileID: 0}
     - target: {fileID: 3034244909220652511, guid: d046318bb333748e888bccf7cf608bf9, type: 3}
       propertyPath: startingSongSpeed
       value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970160538651066178, guid: d046318bb333748e888bccf7cf608bf9, type: 3}
+      propertyPath: onBeat
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4971353221270982416, guid: d046318bb333748e888bccf7cf608bf9, type: 3}
       propertyPath: Loop
@@ -8413,6 +8540,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 795668452}
   - {fileID: 921179316}
   - {fileID: 1774878260}
   - {fileID: 437891716}
@@ -10435,6 +10563,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1124522226}
     m_Modifications:
     - target: {fileID: 1913917953445738009, guid: bda207fa65094447ca096e6357b386c1, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 1534033870}
+    - target: {fileID: 1913917953445738009, guid: bda207fa65094447ca096e6357b386c1, type: 3}
       propertyPath: shape
       value: 
       objectReference: {fileID: 1273221019}
@@ -10444,7 +10576,7 @@ PrefabInstance:
       objectReference: {fileID: 1273221022}
     - target: {fileID: 1913917953445738009, guid: bda207fa65094447ca096e6357b386c1, type: 3}
       propertyPath: whistleRadius
-      value: 0.7
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1913917953445738009, guid: bda207fa65094447ca096e6357b386c1, type: 3}
       propertyPath: whistleMultiplier
