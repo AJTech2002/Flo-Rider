@@ -21,6 +21,16 @@ public class CarMovement : MonoBehaviour
     private GameObject road;
     private GameObject startPoint;
     private GameObject endPoint;
+
+    void Start()
+    {
+        GameObject currentRoad = findCurrentRoad();
+        if (currentRoad != null && currentRoad != road)
+        {
+            onChangeRoad(currentRoad);
+            transform.rotation = Quaternion.LookRotation(endPoint.transform.position - transform.position);
+        }
+    }
     
     void Update()
     {
@@ -68,19 +78,6 @@ public class CarMovement : MonoBehaviour
         List<GameObject> roadEnds = GetEmptyChildren(road);
         startPoint = FindClosest(gameObject, roadEnds);
         endPoint = GetRandomExcluding(roadEnds, startPoint);
-        
-        RoadType? roadType = getRoadType(road);
-        switch (roadType)
-        {
-            case RoadType.STRAIGHT:
-                break;
-            case RoadType.TURN:
-                break;
-            case RoadType.T_INTERSECTION:
-                break;
-            case RoadType.INTERSECTION:
-                break;
-        }
     }
     
     GameObject GetRandomExcluding(List<GameObject> objects, GameObject exclude)
