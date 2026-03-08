@@ -40,10 +40,22 @@ public class WhistleController : MonoBehaviour
 
     void Update()
     {
-        Vector3 groundPosition = ShootRayFromMousePosition();
+        Vector3 groundPosition;
+        bool isGameRunning = GameManager.Instance.isGameRunning();
+        if (isGameRunning)
+        {
+            groundPosition = ShootRayFromMousePosition();
+        }
+        else
+        {
+            groundPosition = new Vector3(100.0f, 0.0f, 100.0f);
+        }
+        
         transform.position = groundPosition + offset;
         shape.position = groundPosition + Vector3.up * 0.02f;
 
+        if (!isGameRunning) return;
+        
         isPressed = Mouse.current.leftButton.isPressed || Input.GetKey(KeyCode.Space);
 
         Vector3 targetScale = isPressed ? activeScale : originalScale;
