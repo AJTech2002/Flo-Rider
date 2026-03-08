@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 2973758154662224140}
   m_Layer: 0
   m_Name: Turn Road
-  m_TagString: Untagged
+  m_TagString: Turn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

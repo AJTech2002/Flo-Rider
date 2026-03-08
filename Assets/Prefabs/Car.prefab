@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4695298519363039265}
   - component: {fileID: 5330372230603585261}
+  - component: {fileID: 8202178955541654933}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -53,7 +54,22 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.31, y: 0.4, z: 0.8}
-  m_Center: {x: 0, y: 0.28, z: 0.01}
+  m_Center: {x: -0.25, y: 0.28, z: 0.01}
+--- !u!114 &8202178955541654933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257187424854792998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d257d29221d948128bf2cf7e3f88672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarMovement
+  speed: 1
+  turnSpeed: 80
+  mapRadius: 12
 --- !u!1001 &8500239674610586590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64,7 +80,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 748ba01c59d3c44d38ff9e41c54325ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 748ba01c59d3c44d38ff9e41c54325ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -112,7 +128,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 748ba01c59d3c44d38ff9e41c54325ee, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3778946714188120409}
+      addedObject: {fileID: 5354584869870561498}
   m_SourcePrefab: {fileID: 100100000, guid: 748ba01c59d3c44d38ff9e41c54325ee, type: 3}
 --- !u!4 &8249560494711895093 stripped
 Transform:
@@ -124,7 +140,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 748ba01c59d3c44d38ff9e41c54325ee, type: 3}
   m_PrefabInstance: {fileID: 8500239674610586590}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3778946714188120409
+--- !u!114 &5354584869870561498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,12 +149,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8734594189776760463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d257d29221d948128bf2cf7e3f88672, type: 3}
+  m_Script: {fileID: 11500000, guid: 639a9ba7a743c4c9c80307b1cec3b430, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CarMovement
-  speed: 1
-  rotationAngle: 5
+  m_EditorClassIdentifier: '::'
   rotationSpeed: 5
-  maxPosZ: 11
-  minPosZ: -12
+  rotationAngle: 5
   maxRotationMultiplier: 2
