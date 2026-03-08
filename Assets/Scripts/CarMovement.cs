@@ -26,7 +26,7 @@ public class CarMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * speedMultiplier * Time.deltaTime);
         Vector3 currentPosition = transform.position;
         if (transform.position.z > maxPosZ)
         {

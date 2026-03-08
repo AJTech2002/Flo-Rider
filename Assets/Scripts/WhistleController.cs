@@ -16,7 +16,13 @@ public class WhistleController : MonoBehaviour
 
     private Vector3 originalScale;
     private Quaternion originalRotation;
+    public float shakeIntensity = 0.5f;
+    
     private bool isPressed = false;
+    
+    public float whistleRadius = 5.0f;
+    public Shapes.Disc whistleEffect;
+    
 
     void Start()
     {
@@ -27,6 +33,8 @@ public class WhistleController : MonoBehaviour
 
         originalScale = transform.localScale;
         originalRotation = transform.rotation;
+        
+        UpdateRadius(whistleRadius);
     }
 
     void Update()
@@ -50,6 +58,51 @@ public class WhistleController : MonoBehaviour
             targetScale,
             Time.deltaTime * scaleSpeed
         );
+       
+
+        if (isPressed)
+        {
+            Vector3 groundPositionFlat = groundPosition;  
+            groundPositionFlat.y = 0.0f; // Ignore height for distance calculation  
+
+            // Shake if pressed
+            transform.rotation *= Quaternion.Euler(
+                Random.Range(-shakeIntensity, shakeIntensity),
+                Random.Range(-shakeIntensity, shakeIntensity),
+                Random.Range(-shakeIntensity, shakeIntensity)
+            );
+            // Handle slowing down cars within radius
+            foreach (CarMovement carMovement in GameObject.FindObjectsOfType<CarMovement>())
+            {
+                Vector3 carPosition = carMovement.transform.position;
+                carPosition.y = 0.0f; // Ignore height for distance calculation
+                
+              
+                if (carMovement != null && Vector3.Distance(carPosition, groundPositionFlat) < whistleRadius)
+                {
+                    carMovement.UpdateSpeed(0.5f); // Example: slow down to 50% speed
+                }
+                else
+                {
+                    carMovement.UpdateSpeed(1.0f); // Reset to normal speed
+                }
+            }
+            
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            foreach (CarMovement carMovement in GameObject.FindObjectsOfType<CarMovement>())
+            {
+                carMovement.UpdateSpeed(1.0f); // Reset to normal speed
+            }
+        }
+    }
+
+    public void UpdateRadius(float newRadius)
+    {
+        whistleRadius = newRadius;
+        whistleEffect.Radius  = newRadius;
     }
 
     Vector3 ShootRayFromMousePosition()
