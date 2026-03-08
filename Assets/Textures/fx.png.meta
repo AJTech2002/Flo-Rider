@@ -817,10 +817,32 @@ TextureImporter:
       name: fx_32
       rect:
         serializedVersion: 2
-        x: 153
+        x: 159
         y: 261
         width: 3714
         height: 311
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 93, y: 62, z: 108, w: 53}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a26f348b005ce44779dfd2be0983e2b0
+      internalID: 907320409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_33
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 1156
+        width: 878
+        height: 325
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -829,8 +851,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a26f348b005ce44779dfd2be0983e2b0
-      internalID: 907320409
+      spriteID: 5c8a2f381568e4b61bc28bcef99bc1c4
+      internalID: -1322843726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_34
+      rect:
+        serializedVersion: 2
+        x: 2474
+        y: 775
+        width: 756
+        height: 343
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fee45ccf140784c449445758c351d634
+      internalID: -1593700822
       vertices: []
       indices: 
       edges: []
@@ -878,6 +922,8 @@ TextureImporter:
       fx_30: -1197939029
       fx_31: 558669222
       fx_32: 907320409
+      fx_33: -1322843726
+      fx_34: -1593700822
       fx_4: -764387802
       fx_5: -199838794
       fx_6: -1411882972

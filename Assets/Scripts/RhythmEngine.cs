@@ -44,6 +44,7 @@ public class RhythmEngine : MonoBehaviour
     [Header("Rhythm")]
     public float toleranceBeforeS = 0.1f;
     public float toleranceAfterS = 0.1f;
+    public RhythmBar bar;
 
     void Start()
     {
