@@ -54,6 +54,9 @@ public class RhythmBar : MonoBehaviour
 
     private bool started = false;
 
+    public bool onBeat = true;
+    public int consecutiveMisses = 3;
+    public int maxYouCanMiss = 3;
     private void Update()
     {
         if (!started) return;
@@ -80,19 +83,31 @@ public class RhythmBar : MonoBehaviour
                 var noteUI = activeNotes[noteId];
                 activeNotes[noteId].result = NoteResult.Hit;
                 noteUI.image.GetComponent<Animator>().SetTrigger("Hit");
+                onBeat = true;
+                consecutiveMisses = maxYouCanMiss;
             }
             else if (result == NoteResult.Miss)
             {
                 var noteUI = activeNotes[noteId];
                 activeNotes[noteId].result = result;
                 noteUI.image.GetComponent<Animator>().SetTrigger("Miss");
-                
+                consecutiveMisses--;
+                if (consecutiveMisses <= 0)
+                {
+                    onBeat = false;
+                }
             }
             else if (result == NoteResult.Wrong)
             {
                 var noteUI = activeNotes[noteId];
                 activeNotes[noteId].result = result;
                 noteUI.image.GetComponent<Animator>().SetTrigger("Wrong");
+
+                consecutiveMisses--;
+                if (consecutiveMisses <= 0)
+                {
+                    onBeat = false;
+                }
             }
         }
     }

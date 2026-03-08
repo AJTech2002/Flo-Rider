@@ -10576,7 +10576,7 @@ PrefabInstance:
       objectReference: {fileID: 1273221022}
     - target: {fileID: 1913917953445738009, guid: bda207fa65094447ca096e6357b386c1, type: 3}
       propertyPath: whistleRadius
-      value: 1.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1913917953445738009, guid: bda207fa65094447ca096e6357b386c1, type: 3}
       propertyPath: whistleMultiplier

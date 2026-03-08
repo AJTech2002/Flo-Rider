@@ -22,7 +22,7 @@ public class WhistleController : MonoBehaviour
     
     public float whistleRadius = 5.0f;
     public Shapes.Disc whistleEffect;
-
+    public RhythmBar bar;
     public float whistleMultiplier = 0.5f;
 
     void Start()
@@ -77,6 +77,16 @@ public class WhistleController : MonoBehaviour
         Vector3 groundPositionFlat = groundPosition;  
         groundPositionFlat.y = 0.0f; // Ignore height for distance calculation  
 
+        if (bar.onBeat)
+        {
+            whistleEffect.Color = Color.Lerp(whistleEffect.Color, new Color(0.0f, 1.0f, 0.0f, 0.15f), Time.deltaTime * 5f);
+        }
+        else
+        {
+            whistleEffect.Color = Color.Lerp(whistleEffect.Color, Color.clear, Time.deltaTime * 5f);
+
+        }
+
         // Handle slowing down cars within radius
         foreach (CarMovement carMovement in GameObject.FindObjectsOfType<CarMovement>())
         {
@@ -84,13 +94,15 @@ public class WhistleController : MonoBehaviour
             carPosition.y = 0.0f; // Ignore height for distance calculation
                 
               
-            if (carMovement != null && Vector3.Distance(carPosition, groundPositionFlat) < whistleRadius)
+            if (carMovement != null && Vector3.Distance(carPosition, groundPositionFlat) < whistleRadius && bar.onBeat)
             {
                 carMovement.UpdateSpeed(0.0f); // Example: slow down to 50% speed
                 carMovement.RandomizeEndPoint(); // Make the car change its destination
+                carMovement.frozen = true;
             }
             else
             {
+                carMovement.frozen = false;
                 carMovement.UpdateSpeed(1.0f); // Reset to normal speed
             }
         }
