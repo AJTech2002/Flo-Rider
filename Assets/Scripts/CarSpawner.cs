@@ -4,27 +4,27 @@ using System.Collections;
 public class CarSpawner : MonoBehaviour
 {
     public GameObject prefabToSpawn;
-    public float spawnInterval = 0.5f; 
+    public int numberOfCars = 20;
+    public float avoidanceRadius = 5.0f;
     
     public void StartSpawning()
     {
-        StartCoroutine(SpawnRoutine());
-    }
-    IEnumerator SpawnRoutine()
-    {
-        while (GameManager.Instance.isGameRunning())
+        int spawnedCars = 0;
+        while (spawnedCars < numberOfCars)
         {
-            SpawnPrefab();
-            yield return new WaitForSeconds(spawnInterval);
+            if (SpawnPrefab())
+            {
+                spawnedCars++;
+            }
         }
     }
-
-    void SpawnPrefab()
+  
+    bool SpawnPrefab()
     {
-        int xRandom = Random.Range(-6, 6) * 2;
-        int zRandom = Random.Range(-6, 6) * 2;
+        int xRandom = Random.Range(-5, 5) * 2;
+        int zRandom = Random.Range(-5, 5) * 2;
 
-        if (xRandom == 0 && zRandom == 0) return; // Tower
+        if (xRandom == 0 && zRandom == 0) return false;
         
         Vector3 spawnPosition = new Vector3(
             xRandom,
@@ -32,8 +32,28 @@ public class CarSpawner : MonoBehaviour
             zRandom
         );
         
+        // Do a raycast down and check for grass tag
+        RaycastHit hit;
+        Ray ray = new Ray(spawnPosition + Vector3.up * 10, Vector3.down);
+        if (Physics.Raycast(ray, out hit, 20))
+        {
+            if (hit.collider.gameObject.tag == "Grass" || hit.collider.gameObject.tag == "Car")
+            {
+                return false;
+            }
+        }
         
-
+        // Check for other cars in radius
+        foreach (var car in GameObject.FindObjectsOfType<CarMovement>())
+        {
+            if (Vector3.Distance(car.transform.position, spawnPosition) < avoidanceRadius)
+            {
+                return false;
+            }
+        }
+        
         Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+
+        return true;
     }
 }

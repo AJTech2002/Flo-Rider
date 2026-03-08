@@ -91,6 +91,15 @@ public class CarMovement : MonoBehaviour
         endPoint = GetRandomExcluding(roadEnds, startPoint);
     }
     
+    public void RandomizeEndPoint()
+    {
+        if (road != null && startPoint != null)
+        {
+            List<GameObject> roadEnds = GetEmptyChildren(road);
+            endPoint = GetRandomExcluding(roadEnds, startPoint);
+        }
+    }
+    
     GameObject GetRandomExcluding(List<GameObject> objects, GameObject exclude)
     {
         if (objects == null || objects.Count == 0) return null;
