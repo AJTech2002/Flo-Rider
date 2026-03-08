@@ -11,8 +11,8 @@ enum RoadType
 
 public class CarMovement : MonoBehaviour
 {
-    private float speedMultiplier = 1.0f;
     public float speed = 1.0f;
+    private float speedMultiplier = 1.0f;
     public float turnSpeed = 80.0f;
 
     public float mapRadius = 15.0f;
@@ -56,6 +56,15 @@ public class CarMovement : MonoBehaviour
         if (!inXAxis || !inZAxis)
         {
             Destroy(gameObject);
+        }
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Car"))
+        {
+            Debug.Log("Car Crash!");
+            GameManager.Instance.CarCrashed(transform.position);
         }
     }
     
@@ -148,7 +157,7 @@ public class CarMovement : MonoBehaviour
         return emptyChildren;
     }
 
-    private GameObject? findCurrentRoad()
+    private GameObject findCurrentRoad()
     {
         RaycastHit hit;
         Vector3 rayStart = transform.position + Vector3.up * 0.1f;
