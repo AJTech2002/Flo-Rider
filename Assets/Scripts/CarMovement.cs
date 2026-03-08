@@ -17,11 +17,16 @@ public class CarMovement : MonoBehaviour
 
     public float mapRadius = 15.0f;
 
+    public LayerMask carLayerMask;
+    
+    // Spherecast parameters for collision checking
+    public float collisionCheckRadius = 0.5f;
+    public float collisionCheckDistance = 1.0f;
 
     private GameObject road;
     private GameObject startPoint;
     private GameObject endPoint;
-    
+    public GameObject warning;
     public static float carSpeed = 1.0f;
 
     void Start()
@@ -59,7 +64,25 @@ public class CarMovement : MonoBehaviour
         if (frozen)
         {
             // Rotate around the Y axis
-            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.up, turnSpeed * 2.0f * Time.deltaTime);
+        }
+        
+        // Check for collisions with other cars using a spherecast
+        RaycastHit hit;
+        if (Physics.SphereCast(transform.position + Vector3.up * 0.5f, collisionCheckRadius, transform.forward, out hit, collisionCheckDistance, carLayerMask))
+        {
+            if (hit.collider.gameObject != gameObject)
+            {
+                warning.SetActive(true);
+            }
+            else
+            {
+                warning.SetActive(false);
+            }
+        }
+        else
+        {
+            warning.SetActive(false);   
         }
 
         bool inXAxis = transform.position.x < mapRadius && transform.position.x > -1 * mapRadius;
