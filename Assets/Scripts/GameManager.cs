@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public float _time = 0.0f;
     public TMPro.TextMeshProUGUI scoreText;
     
+    public AudioClip explosionSound;
+    
     public static GameManager Instance { get; private set; }
     
     void Awake()
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
         cameraController.targetPosition = position - cameraOffset;
         scoreText.text = $"You whistled non-stop for {Math.Floor(_time)} seconds!";
         endScreen.SetActive(true);
+        AudioSource.PlayClipAtPoint(explosionSound, position);
     }
     
     public void RestartGame()
@@ -66,6 +69,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        _time += Time.deltaTime;
+        if (state == GameState.GAME)
+            _time += Time.deltaTime;
     }
 }

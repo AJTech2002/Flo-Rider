@@ -95,7 +95,6 @@ public class RhythmEngine : MonoBehaviour
 
         for (int i = 0; i < temp.Count; i++)
         {
-            print(temp[i].time + " - " + lastNote);
             if (temp[i].time - lastNote > toleranceBeforeS)
             {
                 temp[i].id = noteID;

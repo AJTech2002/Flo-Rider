@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.Mathematics.Geometry;
 
 enum RoadType
 {
@@ -93,6 +94,8 @@ public class CarMovement : MonoBehaviour
         // }
         
         // Check all other CarMovmentsd in raidus
+        bool hasWarning = false;
+        float closestDistance = Mathf.Infinity;
         foreach (var car in GameObject.FindObjectsOfType<CarMovement>())
         {
             if (car != this && Vector3.Distance(car.transform.position, transform.position) < collisionCheckDistance)
@@ -102,20 +105,21 @@ public class CarMovement : MonoBehaviour
                 // check if they are coming towards each other
                 if (dot < 0 || (Vector3.Distance(car.transform.position, transform.position) < collisionCheckDistance / 2))
                 {
-                    warning.SetActive(true);
+                    hasWarning = true;
+                    closestDistance = Mathf.Min(closestDistance, Vector3.Distance(car.transform.position, transform.position));
                 }
                 else
                 {
-                    warning.SetActive(false);
+                    hasWarning = false;
                 }
 
                 break;
             }
-            else
-            {
-                warning.SetActive(false);
-            }
+            
         }
+        
+        warning.SetActive(hasWarning);
+        warning.GetComponent<Animator>().SetFloat("speed", 2.0f - Mathf.Clamp01(closestDistance / collisionCheckDistance));
 
         bool inXAxis = transform.position.x < mapRadius && transform.position.x > -1 * mapRadius;
         bool inZAxis = transform.position.z < mapRadius && transform.position.z > -1 * mapRadius;

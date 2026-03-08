@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   height: 1
+  warningSound: {fileID: 8300000, guid: 6f860719db90248e8b266042cff24178, type: 3}
 --- !u!95 &8807609066852030852
 Animator:
   serializedVersion: 7
@@ -234,7 +235,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b9aded0e72fc440fd8b72b149099b32a, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0

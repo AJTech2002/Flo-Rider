@@ -5289,6 +5289,7 @@ MonoBehaviour:
   endScreen: {fileID: 1808495050}
   _time: 0
   scoreText: {fileID: 437891717}
+  explosionSound: {fileID: 8300000, guid: 322d79e569e7b4ea9b436037bb71c515, type: 3}
 --- !u!4 &1188886701
 Transform:
   m_ObjectHideFlags: 0
