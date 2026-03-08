@@ -16,7 +16,8 @@ public class LookAtCam : MonoBehaviour
         if (GameManager.Instance.isGameRunning())
         {
             GameObject cam = GameManager.Instance.cameraController.camera.gameObject;
-            transform.LookAt(cam.transform);
+            // transform.LookAt(cam.transform);
+            transform.rotation = Camera.main.transform.rotation;
             transform.position = originalParent.position + Vector3.up * height; // Adjust the height as needed
         }
     }

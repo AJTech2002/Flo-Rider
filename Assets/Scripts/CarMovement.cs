@@ -119,6 +119,7 @@ public class CarMovement : MonoBehaviour
         }
         
         warning.SetActive(hasWarning);
+        // warning.transform.LookAt(Camera.main.transform);
         warning.GetComponent<Animator>().SetFloat("speed", 2.0f - Mathf.Clamp01(closestDistance / collisionCheckDistance));
 
         bool inXAxis = transform.position.x < mapRadius && transform.position.x > -1 * mapRadius;

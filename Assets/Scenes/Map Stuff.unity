@@ -2209,8 +2209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   prefabToSpawn: {fileID: 6257187424854792998, guid: 34720a9db41d14d469aaeb7e09be188d, type: 3}
-  numberOfCars: 8
-  avoidanceRadius: 3
+  numberOfCars: 9
+  avoidanceRadius: 4
 --- !u!4 &395899340
 Transform:
   m_ObjectHideFlags: 0
@@ -6049,7 +6049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 279.3455, y: 0}
+  m_AnchoredPosition: {x: 237.84, y: 0}
   m_SizeDelta: {x: 290.9999, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408440176
@@ -6073,14 +6073,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Use "Space" or "Click" to whistle in tune to the song which will activate
-    your whistle.
+    your ability to freeze cars, miss too many notes and you lose this power.
 
 
-    Hover over cars to FREEZE them and turn them in place.
+    Hover
+    over cars to FREEZE them and turn them in place.
 
 
-    Prevent
-    any car crashes!'
+    Prevent any car crashes!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b3c75ad1ffb241ce9ac9e713e981b58, type: 2}
   m_sharedMaterial: {fileID: 6526237829664393738, guid: 3b3c75ad1ffb241ce9ac9e713e981b58, type: 2}
@@ -10483,7 +10483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8156863}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
