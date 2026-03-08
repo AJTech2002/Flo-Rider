@@ -97,7 +97,7 @@ public class RhythmBar : MonoBehaviour
         }
     }
 
-    int nextNoteIndex = 0;
+    private int nextNoteIndex = 0;
     IEnumerator UpdateNote(NoteUI ui)
     {
         float endX = whistleIcon.position.x;

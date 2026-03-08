@@ -82,7 +82,7 @@ public class RhythmEngine : MonoBehaviour
                         (midiEvent.Time / (double)ppq) * secondsPerBeat;
                     temp.Add(new MusicNote
                     {
-                        id = 0,
+                        id = -1,
                         note = midiEvent.Note,
                         time = noteTime
                     });
@@ -98,7 +98,8 @@ public class RhythmEngine : MonoBehaviour
             print(temp[i].time + " - " + lastNote);
             if (temp[i].time - lastNote > toleranceBeforeS)
             {
-                temp[i].id = noteID++;
+                temp[i].id = noteID;
+                noteID++;   
                 notes.Add(temp[i]);
                 lastNote = temp[i].time;
             }
